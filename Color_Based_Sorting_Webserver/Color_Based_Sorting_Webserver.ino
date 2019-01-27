@@ -86,12 +86,14 @@ void loop() {
     Serial.println("White color");
     myservo.write(0);
     delay(15);
+    setdefault();
   }
   if (sensorPinValue <= 100) {
     countB += 1;
     Serial.println("Black color");
     myservo.write(180);
     delay(15);
+    setdefault();
   }
 
 }
