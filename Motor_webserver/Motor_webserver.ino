@@ -79,17 +79,19 @@ void setup(void) {
   server.on("/", handleRoot);
 
   server.on("/open", []() {
-    server.send(200, "text/plain", "this works as well");
+    server.send(200, "text/plain", "Opening");
     forward();
   });
   server.on("/close", []() {
-    server.send(200, "text/plain", "this works as well");
+    server.send(200, "text/plain", "Closing");
     backward();
   });
 
   server.onNotFound(handleNotFound);
 
   server.begin();
+  motorstop();
+
   Serial.println("HTTP server started");
 }
 
